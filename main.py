@@ -29,11 +29,10 @@ def reset_timer():
     canvas.itemconfig(timer_text, text="00:00")
 
 
-# ---------------------------- TIMER MECHANISM ------------------------------- # 
+# ---------------------------- TIMER MECHANISM ------------------------------- #
 def start_timer():
     global reps
 
-    print(reps)
     if reps == 8:
         window.after_cancel(timer)
         return
