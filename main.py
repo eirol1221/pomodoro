@@ -73,9 +73,9 @@ def count_down(min_count, sec_count=0):
         canvas.itemconfig(timer_text, text=f"{min_count}:{sec_count}")
 
     if min_count >= 0 and sec_count > 0:
-        timer = window.after(10, count_down, min_count, sec_count - 1)
+        timer = window.after(1000, count_down, min_count, sec_count - 1)
     elif min_count > 0 and sec_count == 0:
-        timer = window.after(10, count_down, min_count - 1, sec_count + 59)
+        timer = window.after(1000, count_down, min_count - 1, sec_count + 59)
     else:
         canvas.itemconfig(timer_text, text=f"{min_count}:0{sec_count}")
         if reps % 2 == 1:
@@ -96,11 +96,13 @@ canvas.grid(row=1, column=0, rowspan=2, ipadx=20, sticky="ew")
 
 # Buttons
 start_img = PhotoImage(file="btn-start.png")
-btn_start = Button(image=start_img, bg=YELLOW, highlightthickness=0, borderwidth=0, command=start_timer)
+btn_start = Button(image=start_img, bg=YELLOW, highlightthickness=0, borderwidth=0, command=start_timer,
+                   activebackground=YELLOW)
 btn_start.grid(row=1, column=1, sticky='s')
 
 reset_img = PhotoImage(file="btn-reset.png")
-btn_reset = Button(image=reset_img, bg=YELLOW, highlightthickness=0, borderwidth=0, command=reset_timer, state=DISABLED)
+btn_reset = Button(image=reset_img, bg=YELLOW, highlightthickness=0, borderwidth=0, command=reset_timer, state=DISABLED,
+                   activebackground=YELLOW)
 btn_reset.grid(row=2, column=1, sticky='ns')
 
 # pause_img = PhotoImage(file="btn-pause.png")
